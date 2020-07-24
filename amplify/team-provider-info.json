@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-askdada-dev-162012-authRole",
+            "UnauthRoleArn": "arn:aws:iam::462326817292:role/amplify-askdada-dev-162012-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::462326817292:role/amplify-askdada-dev-162012-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-askdada-dev-162012-deployment",
+            "UnauthRoleName": "amplify-askdada-dev-162012-unauthRole",
+            "StackName": "amplify-askdada-dev-162012",
+            "StackId": "arn:aws:cloudformation:us-east-1:462326817292:stack/amplify-askdada-dev-162012/77426b50-cdf3-11ea-9d8a-12a9cf5d803b",
+            "AmplifyAppId": "d3tqd2qoxeno4s"
+        }
+    }
+}
