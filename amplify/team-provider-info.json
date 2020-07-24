@@ -10,6 +10,17 @@
             "StackName": "amplify-askdada-dev-162012",
             "StackId": "arn:aws:cloudformation:us-east-1:462326817292:stack/amplify-askdada-dev-162012/77426b50-cdf3-11ea-9d8a-12a9cf5d803b",
             "AmplifyAppId": "d3tqd2qoxeno4s"
+        },
+        "categories": {
+            "auth": {
+                "askdada260a0cdc": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3tqd2qoxeno4s",
+                    "type": "cicd"
+                }
+            }
         }
     }
 }
