@@ -1,6 +1,6 @@
 /* src/App.js */
 import React, { useEffect, useState } from 'react'
-import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import Amplify, { API, graphqlOperation, container } from 'aws-amplify'
 import { createTodo } from './graphql/mutations'
 import { listTodos } from './graphql/queries'
 import { withAuthenticator } from '@aws-amplify/ui-react'
@@ -11,6 +11,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import awsExports from "./aws-exports";
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import { Form, Table, Navbar } from 'react-bootstrap'
+
 Amplify.configure(awsExports);
 
 const initialState = { name: '', description: '' }
@@ -48,39 +53,51 @@ const App = () => {
   }
 
   return (
-    <div style={styles.container}>
-      <h2>Amplify Todos</h2>
-      <input
-        onChange={event => setInput('name', event.target.value)}
-        style={styles.input}
-        value={formState.name} 
-        placeholder="Name"
-      />
-      <input
-        onChange={event => setInput('description', event.target.value)}
-        style={styles.input}
-        value={formState.description}
-        placeholder="Description"
-      />
-      <Button variant="primary" onClick={addTodo}>Create Todo</Button>
-      {
-        todos.map((todo, index) => (
-          <div key={todo.id ? todo.id : index} style={styles.todo}>
-            <p style={styles.todoName}>{todo.name} - {todo.description}</p>
-          </div>
-        ))
-      }
+    <div>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand>Ask Dada</Navbar.Brand>
+      </Navbar>
+      <Container>
+        <Row>
+          <Col>
+            <Form>
+              <Form.Group controlId="formName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" placeholder="Enter name" onChange={event => setInput('name', event.target.value)} />
+              </Form.Group>
+              <Form.Group controlId="formDescription" >
+                <Form.Label>Description</Form.Label>
+                <Form.Control type="text" placeholder="Enter description" onChange={event => setInput('description', event.target.value)} />
+              </Form.Group>
+              <Button variant="primary" onClick={addTodo}>Create Todo</Button>
+            </Form>
+          </Col>
+        </Row>
+        <Row></Row>
+        <Row>
+          <Col>
+          <Table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                todos.map((todo, index) => (
+                  <tr>
+                    <td>{todo.name}</td>
+                    <td>{todo.description}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </Table>
+          </Col>
+        </Row>
+        </Container>
     </div>
   )
 }
-
-const styles = {
-  container: { width: 400, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  todo: {  marginBottom: 15 },
-  input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
-  todoName: { fontSize: 20, fontWeight: 'bold' },
-  todoDescription: { marginBottom: 0 },
-  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
-}
-
 export default withAuthenticator(App)
