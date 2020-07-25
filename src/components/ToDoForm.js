@@ -1,7 +1,7 @@
 import React from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { Form, Button } from 'react-bootstrap'
-import { createTodo } from './graphql/mutations'
+import { createTodo } from '../graphql/mutations'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 

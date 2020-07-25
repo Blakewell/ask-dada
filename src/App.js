@@ -1,6 +1,6 @@
 /* src/App.js */
 import React, { useEffect, useState } from 'react'
-import Amplify, { API, graphqlOperation, container } from 'aws-amplify'
+import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { listTodos } from './graphql/queries'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
@@ -8,58 +8,13 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import awsExports from "./aws-exports";
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import ToDoForm from './ToDoForm'
-import { Table, Navbar } from 'react-bootstrap'
+import { Navbar, Container, Row, Col} from 'react-bootstrap'
+import ToDoForm from './components/ToDoForm'
+import ToDoTable from './components/ToDoTable'
 
 Amplify.configure(awsExports);
 
-
 const App = () => {
-  const [todos, setTodos] = useState([])
-
-  useEffect(() => {
-    fetchTodos()
-  }, [])
-
-  async function fetchTodos() {
-    try {
-      const todoData = await API.graphql(graphqlOperation(listTodos))
-      const todos = todoData.data.listTodos.items
-      setTodos(todos)
-    } catch (err) { console.log('error fetching todos') }
-  }
-
-
-
-
-  class ToDoTable extends React.Component {
-    render() {
-      return (
-          <Table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                todos.map((todo, index) => (
-                  <tr>
-                    <td>{todo.name}</td>
-                    <td>{todo.description}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </Table>
-      )
-    }
-  }
-
   return (
     <div>
       <Navbar bg="light" expand="lg">
