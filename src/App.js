@@ -5,7 +5,12 @@ import { createTodo } from './graphql/mutations'
 import { listTodos } from './graphql/queries'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
+/* bootstrap stuff */
+import button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import awsExports from "./aws-exports";
+import Button from 'react-bootstrap/Button'
 Amplify.configure(awsExports);
 
 const initialState = { name: '', description: '' }
@@ -57,7 +62,7 @@ const App = () => {
         value={formState.description}
         placeholder="Description"
       />
-      <button style={styles.button} onClick={addTodo}>Create Todo</button>
+      <Button variant="primary" onClick={addTodo}>Create Todo</Button>
       {
         todos.map((todo, index) => (
           <div key={todo.id ? todo.id : index} style={styles.todo}>
