@@ -12,6 +12,7 @@ import ToDoForm from './components/ToDoForm'
 import ToDoTable from './components/ToDoTable'
 import Switch from 'react-bootstrap/esm/Switch';
 import {Link, Route} from 'react-router-dom'
+import AppSettings from './app/settings/AppSettings';
 
 Amplify.configure(awsExports);
 
@@ -24,6 +25,7 @@ const App = () => {
           <Nav className="mr-auto">
             <Nav.Link as={Link} to="/Add">Add</Nav.Link>
             <Nav.Link as={Link} to="/List">List</Nav.Link>
+            <Nav.Link as={Link} to="/Settings">Settings</Nav.Link>
           </Nav>
         </Navbar>
       </div>
@@ -31,6 +33,7 @@ const App = () => {
         <Switch>
           <Route exact path='/Add' component={ToDoForm} />
           <Route exact path='/List' component={ToDoTable} />
+          <Route exact path='/Settings' component={AppSettings} />
         </Switch>
       </div>
     </div>
