@@ -8,10 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import awsExports from "./aws-exports";
 import { Navbar, Nav} from 'react-bootstrap'
-import ToDoForm from './components/ToDoForm'
-import ManageFamilyList from './components/ManageFamilyList'
 import Switch from 'react-bootstrap/esm/Switch';
 import {Link, Route} from 'react-router-dom'
+
+import ManageFamilyList from './components/ManageFamilyList'
 import ManageFamilyMemberForm from './components/ManageFamilyMemberForm';
 
 Amplify.configure(awsExports);
