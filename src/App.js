@@ -9,10 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import awsExports from "./aws-exports";
 import { Navbar, Nav} from 'react-bootstrap'
 import ToDoForm from './components/ToDoForm'
-import ToDoTable from './components/ToDoTable'
+import ManageFamilyList from './components/ManageFamilyList'
 import Switch from 'react-bootstrap/esm/Switch';
 import {Link, Route} from 'react-router-dom'
-import AppSettings from './app/settings/AppSettings';
+import ManageFamilyMemberForm from './components/ManageFamilyMemberForm';
 
 Amplify.configure(awsExports);
 
@@ -24,16 +24,14 @@ const App = () => {
           <Navbar.Brand>Ask Dada</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link as={Link} to="/Add">Add</Nav.Link>
-            <Nav.Link as={Link} to="/List">List</Nav.Link>
-            <Nav.Link as={Link} to="/Settings">Settings</Nav.Link>
+            <Nav.Link as={Link} to="/Family">Family</Nav.Link>
           </Nav>
         </Navbar>
       </div>
       <div>
         <Switch>
-          <Route exact path='/Add' component={ToDoForm} />
-          <Route exact path='/List' component={ToDoTable} />
-          <Route exact path='/Settings' component={AppSettings} />
+          <Route exact path='/Add' component={ManageFamilyMemberForm} />
+          <Route exact path='/Family' component={ManageFamilyList} />
         </Switch>
       </div>
     </div>

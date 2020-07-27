@@ -13,7 +13,8 @@
         },
         "categories": {
             "auth": {
-                "askdada260a0cdc": {}
+                "askdada260a0cdc": {},
+                "userPoolGroups": {}
             },
             "hosting": {
                 "amplifyhosting": {

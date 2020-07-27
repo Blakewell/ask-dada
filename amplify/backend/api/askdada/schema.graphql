@@ -1,15 +1,11 @@
-type Todo @model {
-  id: ID!
-  name: String!
-  description: String
-}
-
 type FamilyMember @model {
+  id: ID!,
   firstName: String!,
   lastName: String!
 }
 
 type Questions @model {
+  id: ID!,
   questionType: QuestionType!,
   questionDescription: String!,
   familyMembers: [FamilyMember]  
