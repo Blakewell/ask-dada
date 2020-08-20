@@ -7,7 +7,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import awsExports from "./aws-exports";
-import { Navbar, Nav} from 'react-bootstrap'
+import { Container, Navbar, Nav} from 'react-bootstrap'
 import Switch from 'react-bootstrap/esm/Switch';
 import {Link, Route} from 'react-router-dom'
 
@@ -28,12 +28,12 @@ const App = () => {
           </Nav>
         </Navbar>
       </div>
-      <div>
+      <Container>
         <Switch>
           <Route exact path='/Add' component={ManageFamilyMemberForm} />
           <Route exact path='/Family' component={ManageFamilyList} />
         </Switch>
-      </div>
+      </Container>
     </div>
   )
 }
