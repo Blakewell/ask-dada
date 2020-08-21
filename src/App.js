@@ -11,7 +11,7 @@ import { Container, Navbar, Nav} from 'react-bootstrap'
 import Switch from 'react-bootstrap/esm/Switch';
 import {Link, Route} from 'react-router-dom'
 
-import ManageFamilyList from './components/ManageFamilyList'
+import ManageFamily from './components/ManageFamily'
 import ManageFamilyMemberForm from './components/ManageFamilyMemberForm';
 
 Amplify.configure(awsExports);
@@ -31,7 +31,7 @@ const App = () => {
       <Container>
         <Switch>
           <Route exact path='/Add' component={ManageFamilyMemberForm} />
-          <Route exact path='/Family' component={ManageFamilyList} />
+          <Route exact path='/Family' component={ManageFamily} />
         </Switch>
       </Container>
     </div>
