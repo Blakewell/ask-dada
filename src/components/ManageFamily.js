@@ -13,6 +13,7 @@ const ManageFamily = () => {
 
     const [familyMembers, setFamilyMembers] = useState([])
     const {isShowing, toggle} = useModal();
+
     useEffect(() => {
         fetchFamilyMembers()
     })
